@@ -1,0 +1,66 @@
+<!--pages/my/my.wxml-->
+
+<view class="container my page">
+	<view class="page__hd my_hd">
+		<text class="nick-name" selectable="false" space="false" decode="false">{{userInfo.nickName}} </text>
+		<image
+		 class="avatar-url"
+		 src='{{userInfo.avatarUrl}}'
+		 mode="aspectFit|aspectFill|widthFix"
+		 lazy-load="false"
+		 binderror=""
+		 bindload=""
+		/>
+	</view>
+	<view class="page__bd">
+		<view class="weui-cells weui-cells_after-title">
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">公司全称</view>
+				</view>
+				<view class="weui-cell__bd">
+				    <view class="detail_text">{{company}}</view>
+					 
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">姓名</view>
+				</view>
+				<view class="weui-cell__bd">
+				    <view class="detail_text">{{userName}}</view>
+					
+				</view>
+			</view>
+			<view class="weui-cell weui-cell_input">
+				<view class="weui-cell__hd">
+					<view class="weui-label">手机号</view>
+				</view>
+				<view class="weui-cell__bd">
+				    <view class="detail_text">{{tel}}</view>
+				</view>
+			</view>
+		</view>
+		<view class="table">
+			<view class="tr bg-w">
+				<view class="th">课程名称</view>
+				<view class="th">考试时间</view>
+				<view class="th ">考试成绩</view>
+			</view>
+			<block wx:for="{{listData}}" wx:key="{{code}}">
+				<view class="tr bg-g" wx:if="{{index % 2 == 0}}">
+					<view class="td">{{item.exam_name}}</view>
+					<view class="td">{{item.create_time}}</view>
+					<view class="td">{{item.score}}</view>
+				</view>
+				<view class="tr" wx:else>
+					<view class="td">{{item.exam_name}}</view>
+					<view class="td">{{item.create_time}}</view>
+					<view class="td">{{item.score}}</view>
+				</view>
+			</block>
+		</view>
+	</view>
+
+</view>
+

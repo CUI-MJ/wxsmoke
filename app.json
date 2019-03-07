@@ -1,0 +1,35 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/reg/reg",
+    "pages/realExam/realExam",
+    "pages/course/course",
+    "pages/exam/exam",
+    "pages/courselists/courselists",
+    "pages/details/details",
+    "pages/my/my",
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#006f7c",
+    "navigationBarTitleText": "携手销客",
+    "navigationBarTextStyle": "#fff"
+  },
+  "tabBar": {
+    "color": "#a9b7b7",
+    "selectedColor": "#006f7c",
+    "borderStyle": "black",
+    "list": [{
+      "selectedIconPath": "/images/house01.png",
+      "iconPath": "/images/house02.png",
+      "pagePath": "pages/index/index",
+      "text": "商铺库存"
+    }, {
+      "selectedIconPath": "images/my02.png",
+      "iconPath": "images/my01.png",
+      "pagePath": "pages/my/my",
+      "text": "商铺日志"
+    }]
+  }
+}

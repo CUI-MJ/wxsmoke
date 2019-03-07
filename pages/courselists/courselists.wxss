@@ -1,0 +1,44 @@
+/* pages/courselists/courselists.wxss */
+.chapterList {
+    margin-bottom: 20rpx;
+}
+
+.courselists .weui-cells::after {
+    border: none;
+}
+.weui-btn{
+    position: relative;
+}
+.line {
+    height: 1px;
+    background: #d9d9d9
+}
+.courselists .btn{
+    width: 80%;
+    font-size: 14px;
+    color: #fff!important;
+    background-color: cornflowerblue!important;
+    height:60rpx;
+    line-height:60rpx;
+}
+.weui-cell__bd,.cell__ft{
+    font-size: 16px;
+}
+.courselists .submit{
+    border-radius: 0;
+}
+.mt20{
+    margin-top:30px;
+    width: 90%;
+}
+.isSelect{
+    color: #999;
+}
+.nodata{
+    text-align: center;
+    height:200rpx;
+    line-height:200rpx;
+}
+.isSee{
+    color: #999
+}

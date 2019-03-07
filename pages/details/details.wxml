@@ -1,0 +1,23 @@
+<!--pages/details/details.wxml-->
+<video  wx:if="{{type == 1}}"
+    class="videos"
+    src="{{videoUrl}}"
+    controls
+    autoplay
+    bindended="videoEnd"
+    bindtimeupdate = "timeupdate"
+    binderror = "playerror"
+    bindpause = "pause"
+>
+</video>
+<view  wx:if="{{type == 2}}" class="files">
+        <view wx:for="{{videoUrl}}" wx:for-item="item"  wx:key="*this" class="filename">
+             <view class="file-txt"> {{item.name}}</view>
+             <button class="weui-btn btn" type="default"  bindtap="downloadFile"  data-src="{{item.url}}" class="downloadFile">点击下载附件</button>
+        </view>
+</view>
+
+
+<view  wx:if="{{type == 3}}" wx:for="{{videoUrl}}" wx:for-index="idx" wx:for-item="item"  wx:key="*this">
+    <image class="media-box_url" src="{{item}}" class="video_img" bindtap="imgYu" data-list="{{videoUrl}}" data-src="{{item}}"></image>
+</view>

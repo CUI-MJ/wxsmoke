@@ -1,0 +1,28 @@
+/* pages/course/course.wxss */
+.banner{
+    overflow: hidden;
+}
+.banner .banner-img{
+    width:100%;
+    float: left;
+    height:376rpx;
+    margin-top:-1rpx;
+}
+.pd20{
+    padding: 20px;
+}
+.weui-media-box__desc .media-box_url{
+    width: 100%;
+    height:200rpx;
+}
+.course .weui-media-box__info{
+    color: #333;
+    display: flex;
+    justify-content: space-between;
+}
+.course .weui-panel{
+    margin-top: 0px!important;
+}
+.course .weui-panel::after{
+    border: none;
+} 

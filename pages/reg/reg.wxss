@@ -1,0 +1,31 @@
+.weui-vcode-btn::after {
+    border: none
+}
+
+.weui-vcode-btn {
+    background-color: none;
+    border-radius: 0px;
+    background: none;
+    padding: 0px;
+    border: none;
+    margin: 0px;
+    color: #006f7c;
+}
+
+.pagelast {
+    text-align: center;
+}
+
+.mini-btn {
+    font-size: 16px !important;
+}
+
+.imagesize {
+    display: flex;
+    justify-content: center;
+}
+
+.imagesize image {
+    width: 400rpx;
+    height: 380rpx;
+}

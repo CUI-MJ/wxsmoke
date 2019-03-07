@@ -1,0 +1,18 @@
+<view class="page exam">
+    <view class="countDownTimeView countDownAllView" >
+      <view class="voteText countDownTimeText">
+            <text class="single">单选题</text>
+      </view>
+    </view>
+    <view class="page__bd">
+        <view class="section section_gap" wx:for="{{checkdata}}" wx:for-index="idx" wx:for-item="itemName" wx:key="*this">
+            <text>{{itemName.title}}</text>
+            <radio-group class="radio-group" bindchange="radioChange">
+                <radio class="radio" wx:for-items="{{itemName.items}}" wx:key="*this" value="{{itemName.id}},{{item.name}}" checked="{{item.checked}}" data-checkid="{{itemName.checkid}}">
+                    <text class="radioText">{{item.name}} : {{item.value}}</text>
+                </radio>
+            </radio-group>
+        </view>
+       <button class="weui-btn" type="primary" bindtap="submit">提交</button>
+    </view>
+</view>

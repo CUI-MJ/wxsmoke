@@ -1,0 +1,53 @@
+<!--pages/course/course.wxml-->
+<view class="page course">
+    <!--<scroll-view scroll-top="{{scrollTop}}" scroll-y="true" style="height:{{scrollHeight}}px;" bindscrolltolower="bindDownLoad" bindscrolltoupper="topLoad" >
+      -->
+      <view class="banner">
+          <image src='{{bannerUrl}}' class="banner-img" mode="aspectFit"></image>
+      </view>
+      <view class="page__hd pd20">
+          <view class="page__title">在线课程</view>
+      </view>
+      <view class="weui-panel" wx:for="{{lists}}" wx:for-index="index" wx:key="that">
+            <view  class="weui-panel__bd" bindtap="gopage" data-id='{{item.id}}'>
+                <navigator url="/pages/courselists/courselists?id={{item.id}}&name={{item.name}}" hover-class="none"> 
+                    <view class="weui-media-box weui-media-box_text" >
+                        <!-- <view class="weui-media-box__title weui-media-box__title_in-text">标题一</view> -->
+                        <view class="weui-media-box__desc">
+                        <image class="media-box_url" src="{{item.pic_url}}"></image>
+                        </view>
+                        <view class="weui-media-box__info">
+                            <view class="weui-media-box__info__meta">{{item.name}}</view>
+                        </view>
+                    </view>
+                </navigator> 
+            </view>
+      </view>
+      <view class="page__hd pd20">
+          <view class="page__title">资料库</view>
+      </view>
+      <view class="weui-panel" wx:for="{{materials}}" wx:for-index="index" wx:key="that">
+            <view  class="weui-panel__bd" bindtap="gopage" data-id='{{item.id}}'>
+                <navigator url="/pages/courselists/courselists?id={{item.id}}&name={{item.name}}" hover-class="none"> 
+                    <view class="weui-media-box weui-media-box_text" >
+                        <!-- <view class="weui-media-box__title weui-media-box__title_in-text">标题一</view> -->
+                        <view class="weui-media-box__desc">
+                        <image class="media-box_url" src="{{item.pic_url}}"></image>
+                        </view>
+                        <view class="weui-media-box__info">
+                            <view class="weui-media-box__info__meta">{{item.name}}</view>
+                           <!-- <view class="weui-media-box__info__meta">发布时间：{{item.create_time}}</view> -->
+                        </view>
+                    </view>
+                </navigator> 
+            </view>
+      </view>
+      <view class="weui-loadmore" wx:if="{{isLoadmore}}">
+              <view class="weui-loading"></view>
+              <view class="weui-loadmore__tips">正在加载</view>
+      </view>
+      <view class="weui-loadmore weui-loadmore_line" wx:if="{{isNodata}}">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+      </view>
+    <!--  </scroll-view>-->
+</view>

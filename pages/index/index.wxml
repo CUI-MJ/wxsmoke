@@ -1,0 +1,39 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="table">
+    <view class="tr bg-w">
+        <view class="th">商品名称</view>
+        <view class="th">批发价</view>
+        <view class="th">零售价</view>
+        <view class="th ">库存</view>
+    </view>
+    <block wx:for="{{listData}}" wx:key="{{id}}">
+        <view class="tr bg-g" wx:if="{{index % 2 == 0}}" data-id="{{item.id}}" data-stockNum="{{item.stockNum}}" bindtap="openmodel">
+            <view class="td">{{item.name}}</view>
+            <view class="td">{{item.tradePrice}}</view>
+            <view class="td">{{item.retailPrice}}</view>
+            <view class="td">{{item.stockNum}}</view>
+        </view>
+        <view class="tr" wx:else bindtap="openmodel" data-id="{{item.id}}" data-stockNum="{{item.stockNum}}">
+            <view class="td">{{item.name}}</view>
+            <view class="td">{{item.tradePrice}}</view>
+            <view class="td">{{item.retailPrice}}</view>
+            <view class="td">{{item.stockNum}}</view>
+        </view>
+    </block>
+     <!--弹窗-->
+    <view class="modal-mask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{showModal}}"></view>
+    <view class="modal-dialog" wx:if="{{showModal}}">
+        <view class="modal-title">减少库存</view>
+        <view class="modal-content">
+            <view class="modal-input">
+                <input placeholder-class="input-holder" type="number" maxlength="10" bindinput="inputChange" class="input" placeholder="出货"></input>
+            </view>
+        </view>
+        <view class="modal-footer">
+            <view class="btn-cancel" bindtap="onCancel" data-status="cancel">取消</view>
+            <view class="btn-confirm" bindtap="onConfirm" data-status="confirm">确定</view>
+        </view>
+    </view>
+ </view>
+</view>

@@ -1,0 +1,22 @@
+<!--pages/courselists/courselists.wxml-->
+<view class="page courselists">
+    <view class="chapterList" wx:for="{{videLists}}" wx:for-index="idx" wx:for-item="itemName"  wx:key="*this">
+        <view class="weui-cells weui-cells_after-title">
+           <view class="weui-cell weui-cell_access" hover-class="weui-cell_active" data-id="{{idx}}" bindtap="tapVideo">
+                <view class="weui-cell__hd" data-id="{{idx}}">
+                    <image data-id="{{idx}}" src="{{icon}}" style="margin-right: 5px;vertical-align: middle;width:16px; height:16px;margin-top:-3px;"></image>
+                </view>
+                <view data-id="{{idx}}" class="weui-cell__bd {{itemName.is_see == 1 ? 'isSee' :''}}">{{itemName.video_name}}</view>
+                <view data-id="{{idx}}" class="weui-cell__ft weui-cell__ft_in-access"></view>
+            </view>
+        </view>
+        <view class="line">  
+        </view>
+        <button wx:if="{{itemName.question}}" class="weui-btn btn" type="default" data-btnid="{{idx}}"  data-courseid="{{itemName.question_id}},{{itemName.question.answer}}" bindtap="tabExercises">进入习题</button>
+    </view>
+    <button class="weui-btn submit mt20" type="primary" bindtap="tabExam" wx:if="{{videLists.length>0}}">进入测试</button>
+    <view wx:if="{{videLists.length == 0}}" class="nodata">
+        暂无数据显示
+    </view>
+</view>
+

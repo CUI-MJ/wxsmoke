@@ -1,0 +1,22 @@
+/* pages/details/details.wxss */
+.videos{
+    width:100%;
+}
+.video_img{
+    width: 100%;
+}
+.files{
+   padding-top:50rpx;
+}
+.downloadFile{
+    width:80%;
+}
+.filename{
+    padding: 0 20px 20px 20px;
+}
+.file-txt{
+    margin-bottom: 10px;
+}
+.downloadFile{
+    font-size: 14px;
+}
