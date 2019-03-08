@@ -1,6 +1,32 @@
 <!--logs.wxml-->
 <view class="container log-list">
-  <block wx:for="{{logs}}" wx:for-item="log">
-    <text class="log-item">{{index + 1}}. {{log}}</text>
-  </block>
+  <view class="section pickersection">
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+        <view class="picker">
+          日期选择查询: {{date}}
+        </view>
+      </picker>
+  </view>
+  <view class="table">
+    <view class="tr bg-w">
+        <view class="th">商品名称</view>
+        <view class="th">数量</view>
+        <view class="th ">利润</view>
+        <view class="th ">日期</view>
+    </view>
+    <block wx:for="{{listData}}" wx:key="{{id}}">
+        <view class="tr bg-g" wx:if="{{index % 2 == 0}}" data-id="{{item.id}}" data-stockNum="{{item.stockNum}}" bindtap="openmodel">
+            <view class="td">{{item.name}}</view>
+            <view class="td">{{item.num}}</view>
+            <view class="td">{{item.price}}</view>
+            <view class="td">{{item.date}}</view>
+        </view>
+        <view class="tr" wx:else bindtap="openmodel" data-id="{{item.id}}" data-stockNum="{{item.stockNum}}">
+            <view class="td">{{item.name}}</view>
+            <view class="td">{{item.num}}</view>
+            <view class="td">{{item.price}}</view>
+            <view class="td">{{item.date}}</view>
+        </view>
+    </block>
+  </view>
 </view>

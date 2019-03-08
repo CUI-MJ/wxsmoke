@@ -20,6 +20,7 @@ function postRequestLoading(url, params, message, success, fail) {
             title: message,
         })
     }
+   
     const postRequestTask = wx.request({
         url: host + url,
         data: Object.assign({appId:'wxc301d72d99dd6b36'}, params),
@@ -58,10 +59,11 @@ function getRequestLoading(url, params, message, success, fail) {
         })
     }
     const getRequestTask = wx.request({
-        url: url,
+        url: host + url,
         data: Object.assign({appid:'wx92a3d222a4b07756'}, params),
         header: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'cookie':"token=" + wx.getStorageSync("token")
         },
         method: 'GET',
         success: function (res) {

@@ -2,13 +2,14 @@
   "pages": [
     "pages/index/index",
     "pages/reg/reg",
+    "pages/logs/logs",
     "pages/realExam/realExam",
     "pages/course/course",
     "pages/exam/exam",
     "pages/courselists/courselists",
     "pages/details/details",
-    "pages/my/my",
-    "pages/logs/logs"
+    "pages/my/my"
+   
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -25,6 +26,11 @@
       "iconPath": "/images/house02.png",
       "pagePath": "pages/index/index",
       "text": "商铺库存"
+    },{
+      "selectedIconPath": "/images/house01.png",
+      "iconPath": "/images/house02.png",
+      "pagePath": "pages/logs/logs",
+      "text": "商铺日志"
     }, {
       "selectedIconPath": "images/my02.png",
       "iconPath": "images/my01.png",

@@ -33,6 +33,13 @@ App({
       }
     })
   },
+  onShow: function (options) {
+    if(!wx.getStorageSync('userId')){
+      wx.navigateTo({
+        url: "/pages/reg/reg"
+      })
+    }
+  },
   globalData: {
     userInfo:'',
     appid:'wx065ccb0ff5d1ac3b',
