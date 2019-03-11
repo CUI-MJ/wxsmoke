@@ -25,7 +25,8 @@ function postRequestLoading(url, params, message, success, fail) {
         url: host + url,
         data: Object.assign({appId:'wxc301d72d99dd6b36'}, params),
         header: {
-            'Content-Type': 'application/json'
+            'Content-Type': 'application/json',
+            'cookie':"token=" + wx.getStorageSync("token")
         },
         method: 'POST',
         success: function (res) {
@@ -33,7 +34,17 @@ function postRequestLoading(url, params, message, success, fail) {
                 wx.hideLoading()
             }
             if (res.statusCode == 200) {
-                success(res.data)
+                if(res.data.code == '0001'){
+                    wx.showToast({
+                        title: "请重新登录",
+                        icon: "none"
+                    });
+                    wx.navigateTo({
+                        url: "/pages/reg/reg"
+                    });
+                }else{
+                    success(res.data)
+                }
             } else {
                 fail(res)
             }
@@ -71,7 +82,17 @@ function getRequestLoading(url, params, message, success, fail) {
                 wx.hideLoading()
             }
             if (res.statusCode == 200) {
-                success(res.data)
+                if(res.data.code == '0001'){
+                    wx.showToast({
+                        title: "请重新登录",
+                        icon: "none"
+                    });
+                    wx.navigateTo({
+                        url: "/pages/reg/reg"
+                    });
+                }else{
+                    success(res.data)
+                }
             } else {
                 fail(res)
             }

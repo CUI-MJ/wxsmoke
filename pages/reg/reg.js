@@ -39,7 +39,7 @@ Page({
     }
     network.postRequest('/wechat/login-wechat', params, res => {
        console.log(res)
-       if(res.code = '0000'){
+       if(res.code == '0000'){
           wx.setStorageSync('token', res.data.token)
           wx.setStorageSync('userId', res.data.userId)
           wx.switchTab({

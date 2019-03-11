@@ -1,7 +1,7 @@
 <!--logs.wxml-->
 <view class="container log-list">
   <view class="section pickersection">
-      <picker mode="date" value="{{date}}" start="2015-09-01" end="2017-09-01" bindchange="bindDateChange">
+      <picker mode="date" value="{{date}}" start="2015-09-01" end="2100-12-31" bindchange="bindDateChange">
         <view class="picker">
           日期选择查询: {{date}}
         </view>
