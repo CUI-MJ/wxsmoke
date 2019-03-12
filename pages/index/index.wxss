@@ -13,6 +13,7 @@
     width:40%;
     justify-content: center;
     text-align: center;
+    font-size: 14px;
 }
 .bg-w{
   background: snow;
@@ -27,6 +28,7 @@
   color: #fff;
   display: flex;
   height: 2.6rem;
+  font-size: 14px;
   align-items: center;
 }
 .detail_text{

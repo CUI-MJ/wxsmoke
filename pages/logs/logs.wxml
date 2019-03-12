@@ -1,32 +1,47 @@
 <!--logs.wxml-->
 <view class="container log-list">
   <view class="section pickersection">
-      <picker mode="date" value="{{date}}" start="2015-09-01" end="2100-12-31" bindchange="bindDateChange">
+      <picker mode="date" value="{{days}}" start="2015-09-01" end="2100-12-31" bindchange="binddaysChange">
         <view class="picker">
-          日期选择查询: {{date}}
+          {{days}}
         </view>
       </picker>
+      <picker mode="date" value="{{month}}" start="2015-09" fields="month" end="2100-12" bindchange="bindmonthChange">
+        <view class="picker">
+          {{month}}
+        </view>
+      </picker>
+      <view class="red">
+        总利润:{{sum}}元
+      </view>
   </view>
   <view class="table">
     <view class="tr bg-w">
-        <view class="th">商品名称</view>
-        <view class="th">数量</view>
-        <view class="th ">利润</view>
-        <view class="th ">日期</view>
+        <view class="th" style="width:46%">商品名称</view>
+        <view class="th" style="width:15%">数量</view>
+        <view class="th" style="width:15%">利润</view>
+        <view class="th" style="width:24%">日期</view>
     </view>
     <block wx:for="{{listData}}" wx:key="{{id}}">
         <view class="tr bg-g" wx:if="{{index % 2 == 0}}" data-id="{{item.id}}" data-stockNum="{{item.stockNum}}" bindtap="openmodel">
-            <view class="td">{{item.name}}</view>
-            <view class="td">{{item.num}}</view>
-            <view class="td">{{item.price}}</view>
-            <view class="td">{{item.date}}</view>
+            <view class="td" style="width:46%">{{item.name}}</view>
+            <view class="td" style="width:15%">{{item.operationStock}}</view>
+            <view class="td" style="width:15%">{{item.profit}}</view>
+            <view class="td" style="width:24%">{{item.createDate}}</view>
         </view>
         <view class="tr" wx:else bindtap="openmodel" data-id="{{item.id}}" data-stockNum="{{item.stockNum}}">
-            <view class="td">{{item.name}}</view>
-            <view class="td">{{item.num}}</view>
-            <view class="td">{{item.price}}</view>
-            <view class="td">{{item.date}}</view>
+            <view class="td" style="width:46%">{{item.name}}</view>
+            <view class="td" style="width:15%">{{item.operationStock}}</view>
+            <view class="td" style="width:15%">{{item.profit}}</view>
+            <view class="td" style="width:24%">{{item.createDate}}</view>
         </view>
     </block>
   </view>
+   <view class="weui-loadmore" wx:if="{{isLoadmore}}">
+              <view class="weui-loading"></view>
+              <view class="weui-loadmore__tips">正在加载</view>
+    </view>
+    <view class="weui-loadmore weui-loadmore_line" wx:if="{{isNodata}}">
+            <view class="weui-loadmore__tips weui-loadmore__tips_in-line">暂无数据</view>
+    </view>
 </view>

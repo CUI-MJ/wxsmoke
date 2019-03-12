@@ -40,11 +40,19 @@ Page({
       pageSize:this.data.pageSize,
     }
     network.getRequest('wechat/stock', params,res=>{
-      this.setData({
-        listData: this.data.listData.concat(res.data.list),
-        isLoadmore:false,
-        pages:res.data.pages
-      })
+      if(res.code =='0000'){
+        this.setData({
+          listData: this.data.listData.concat(res.data.list),
+          isLoadmore:false,
+          pages:res.data.pages
+        })
+      }else{
+        wx.showModal({
+          content:res.msg,
+          showCancel: false,
+        });
+      }
+      
     },err=>{
       
     })

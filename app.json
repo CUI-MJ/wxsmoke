@@ -1,8 +1,8 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/reg/reg",
     "pages/logs/logs",
+    "pages/index/index",
     "pages/realExam/realExam",
     "pages/course/course",
     "pages/exam/exam",
@@ -15,7 +15,7 @@
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#006f7c",
     "navigationBarTitleText": "携手销客",
-    "navigationBarTextStyle": "#fff"
+    "navigationBarTextStyle": "white"
   },
   "tabBar": {
     "color": "#a9b7b7",
@@ -27,15 +27,15 @@
       "pagePath": "pages/index/index",
       "text": "商铺库存"
     },{
-      "selectedIconPath": "/images/house01.png",
-      "iconPath": "/images/house02.png",
+      "selectedIconPath": "/images/search02.png",
+      "iconPath": "/images/search01.png",
       "pagePath": "pages/logs/logs",
       "text": "商铺日志"
     }, {
       "selectedIconPath": "images/my02.png",
       "iconPath": "images/my01.png",
       "pagePath": "pages/my/my",
-      "text": "商铺日志"
+      "text": "销烟统计"
     }]
   }
 }

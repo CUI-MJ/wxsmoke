@@ -37,8 +37,8 @@ Page({
       password: md5.hexMD5(this.data.password),
       code:app.globalData.code
     }
-    network.postRequest('/wechat/login-wechat', params, res => {
-       console.log(res)
+    network.postRequest('wechat/login-wechat', params, res => {
+       
        if(res.code == '0000'){
           wx.setStorageSync('token', res.data.token)
           wx.setStorageSync('userId', res.data.userId)
