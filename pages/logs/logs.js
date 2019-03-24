@@ -16,6 +16,13 @@ Page({
     sum:''
   },
   onLoad: function () {
+    //this.getStockLog()
+  },
+  onShow: function () {
+    this.setData({
+      listData:[],
+      pageNum:1,
+    });
     this.getStockLog()
   },
   getStockLog(){

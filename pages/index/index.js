@@ -46,10 +46,16 @@ Page({
           isLoadmore:false,
           pages:res.data.pages
         })
+        if(this.data.listData.length == 0){
+          this.setData({
+            isNodata:true,
+          })
+        }
       }else{
         wx.showModal({
           content:res.msg,
           showCancel: false,
+          isLoadmore:false,
         });
       }
       
@@ -72,6 +78,13 @@ Page({
     }
   },
   onLoad: function () {
+   // this.getstockList();
+  },
+  onShow: function () {
+    this.setData({
+      listData:[],
+      pageNum:1,
+    });
     this.getstockList();
   },
   openmodel: function (event) {
