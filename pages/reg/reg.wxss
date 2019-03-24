@@ -29,3 +29,12 @@
     width: 400rpx;
     height: 380rpx;
 }
+.page__hd .title{
+    text-align:center;
+    letter-spacing:32rpx;
+    font-weight:600;
+    font-size:40rpx;
+}
+.imagesize{
+    margin-top: 20rpx;
+}

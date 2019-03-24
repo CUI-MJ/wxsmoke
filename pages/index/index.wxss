@@ -110,4 +110,10 @@ input-holder {
   color: #ec5300;
   text-align: center;
 }
+.level{
+  font-size: 32rpx;
+  height:64rpx;
+  line-height:64rpx;
+  padding-left:20rpx;
+}
 

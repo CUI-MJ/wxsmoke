@@ -5,7 +5,8 @@
  * success:成功的回调
  * fail:失败的回调
  */
-const host = 'https://membert.chinajinmao.cn/cig/'
+//https://membert.chinajinmao.cn/cig/
+const host = 'http://192.168.1.4:8081/'
 // const host ="http://mytrain2.shsmiles.com"
 //post请求
 

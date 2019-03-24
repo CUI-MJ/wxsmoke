@@ -1,12 +1,15 @@
 <!--index.wxml-->
 <view class="container">
-  <view class="table">
-    <view class="tr bg-w">
-        <view class="th" style="width:50%">商品名称</view>
-        <view class="th" style="width:17%">批发价</view>
-        <view class="th" style="width:17%">零售价</view>
-        <view class="th" style="width:16%">库存</view>
+    <view class="level" wx:if="shopsGrade">
+        客户档位:{{shopsGrade}}档
     </view>
+    <view class="table">
+        <view class="tr bg-w">
+            <view class="th" style="width:50%">商品名称</view>
+            <view class="th" style="width:17%">批发价</view>
+            <view class="th" style="width:17%">零售价</view>
+            <view class="th" style="width:16%">库存</view>
+        </view>
     <block wx:for="{{listData}}" wx:key="{{id}}">
         <view class="tr bg-g" wx:if="{{index % 2 == 0}}" data-id="{{item.id}}" data-shopsId="{{item.shopsId}}" data-cigaretteId="{{item.cigaretteId}}" bindtap="openmodel">
             <view class="td" style="width:50%">{{item.name}}</view>

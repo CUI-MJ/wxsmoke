@@ -1,6 +1,8 @@
 <view class="container user-reg page">
 
 	<view class="page__hd">
+	    <view class="title">齐守价,同盈利</view>
+		  <view class="title">我服务,你放心</view>
 		<view class='imagesize'>
 			<image src="./image/logo.png" class='in-image'   >
 			</image>

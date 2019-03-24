@@ -7,6 +7,7 @@ Page({
     userInfo: {},
     isReg: '',
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
+    shopsGrade:wx.getStorageSync('shopsGrade'),
     pageNum:1,
     pageSize:20,
     pages:0,
