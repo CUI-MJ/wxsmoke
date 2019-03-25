@@ -10,12 +10,13 @@ Page({
     canIUse: wx.canIUse('button.open-type.getPhoneNumber'),
     days: '选择日期查询',
     month:'选择月份查询',
+    date:'',
     pageNum: 1,
     pageSize: 10,
     pages: 0,
     isLoadmore: true,
     isNodata: false,
-    listData: [],
+    listData:{},
   },
 
   /**
@@ -92,10 +93,8 @@ Page({
     let params = {
       userId: wx.getStorageSync("userId"),
       queryDate: this.data.date != '选择日期查询' ? this.data.date : '',
-      pageNum: this.data.pageNum,
-      pageSize: this.data.pageSize,
     }
-    network.getRequest('wechat/cig-sales', params, res => {
+    network.getRequest('wechat/shops-sales', params, res => {
       if (res.code == '0000') {
         this.setData({
           listData: res.data,

@@ -1,37 +1,60 @@
 <!--logs.wxml-->
 <view class="container log-list">
-  <view class="section pickersection">
-      <picker mode="date" value="{{days}}" start="2015-09-01" end="2100-12-31" bindchange="binddaysChange" class="pickers">
-        <view class="picker">
-          {{days}}
+ 
+   <view class="page__bd">
+        <view class="weui-form-preview">
+            <view class="weui-form-preview__hd">
+                  <view class="section pickersection">
+                    <picker mode="date" value="{{days}}" start="2015-09-01" end="2100-12-31" bindchange="binddaysChange" class="pickers">
+                      <view class="picker">
+                        {{days}}
+                      </view>
+                    </picker>
+                    <picker mode="date" value="{{month}}" start="2015-09" fields="month" end="2100-12" bindchange="bindmonthChange" class="pickers">
+                      <view class="picker">
+                        {{month}}
+                      </view>
+                    </picker> 
+                </view>
+            </view>
+            <view class="weui-form-preview__bd">
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">销量(条):</view>
+                    <view class="weui-form-preview__value">{{listData.sum}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">销售额(元):</view>
+                    <view class="weui-form-preview__value">{{listData.retailPrice}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">盈利额(元):</view>
+                    <view class="weui-form-preview__value">{{listData.profit}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">盈利率:</view>
+                    <view class="weui-form-preview__value">{{listData.interestRate}}</view>
+                </view>
+                <view class="style-one"></view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">新品销售量(条):</view>
+                    <view class="weui-form-preview__value">{{listData.newRetailPrice}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">新品盈利额(元):</view>
+                    <view class="weui-form-preview__value">{{listData.newProfit}}</view>
+                </view>
+                <view class="style-one"></view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">约价品规销售量(条):</view>
+                    <view class="weui-form-preview__value">{{listData.agreedRetailPrice}}</view>
+                </view>
+                <view class="weui-form-preview__item">
+                    <view class="weui-form-preview__label">约价品规盈利额(元):</view>
+                    <view class="weui-form-preview__value">{{listData.agreedProfit}}</view>
+                </view>
+            </view>
         </view>
-      </picker>
-      <picker mode="date" value="{{month}}" start="2015-09" fields="month" end="2100-12" bindchange="bindmonthChange" class="pickers">
-        <view class="picker">
-          {{month}}
-        </view>
-      </picker>
-      
-  </view>
-  <view class="table">
-    <view class="tr bg-w">
-        <view class="th name">商品名称</view>
-        <view class="th number">数量</view>
-        <view class="th number">利润</view>
     </view>
-    <block wx:for="{{listData}}" wx:key="{{id}}">
-        <view class="tr bg-g" wx:if="{{index % 2 == 0}}" data-id="{{item.id}}" data-stockNum="{{item.stockNum}}" bindtap="openmodel">
-            <view class="td name" >{{item.NAME}}</view>
-            <view class="td number" >{{item.operationStock}}</view>
-            <view class="td number" >{{item.profit}}</view>
-        </view>
-        <view class="tr" wx:else bindtap="openmodel" data-id="{{item.id}}" data-stockNum="{{item.stockNum}}">
-            <view class="td name" >{{item.NAME}}</view>
-            <view class="td number" >{{item.operationStock}}</view>
-            <view class="td number" >{{item.profit}}</view>
-        </view>
-    </block>
-  </view>
    <view class="weui-loadmore" wx:if="{{isLoadmore}}">
               <view class="weui-loading"></view>
               <view class="weui-loadmore__tips">正在加载</view>

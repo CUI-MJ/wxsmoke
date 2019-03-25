@@ -1,0 +1,7 @@
+.title-hd{
+    height:80rpx;
+    font-size:38rpx;
+    line-height:80rpx;
+    padding-left:32rpx;
+    font-weight:500;
+}

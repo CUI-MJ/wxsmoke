@@ -116,4 +116,6 @@ input-holder {
   line-height:64rpx;
   padding-left:20rpx;
 }
-
+.weui-select{
+  border-right:none;
+}

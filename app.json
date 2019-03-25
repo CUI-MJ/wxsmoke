@@ -3,10 +3,7 @@
     "pages/index/index",
     "pages/reg/reg",
     "pages/logs/logs",
-    "pages/realExam/realExam",
-    "pages/course/course",
-    "pages/exam/exam",
-    "pages/courselists/courselists",
+    "pages/list/list",
     "pages/details/details",
     "pages/my/my"
    
@@ -36,6 +33,11 @@
       "iconPath": "images/my01.png",
       "pagePath": "pages/my/my",
       "text": "销烟统计"
+    },{
+      "selectedIconPath": "images/list01.png",
+      "iconPath": "images/list02.png",
+      "pagePath": "pages/list/list",
+      "text": "公告列表"
     }]
   }
 }

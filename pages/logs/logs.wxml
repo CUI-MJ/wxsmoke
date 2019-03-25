@@ -17,22 +17,27 @@
   </view>
   <view class="table">
     <view class="tr bg-w">
-        <view class="th" style="width:46%">商品名称</view>
+        <view class="th" style="width:31%">商品名称</view>
         <view class="th" style="width:15%">数量</view>
+        <view class="th" style="width:15%">单位</view>
         <view class="th" style="width:15%">利润</view>
         <view class="th" style="width:24%">日期</view>
     </view>
     <block wx:for="{{listData}}" wx:key="{{id}}">
         <view class="tr bg-g" wx:if="{{index % 2 == 0}}" data-id="{{item.id}}" data-stockNum="{{item.stockNum}}" bindtap="openmodel">
-            <view class="td" style="width:46%">{{item.name}}</view>
+            <view class="td" style="width:31%">{{item.name}}</view>
             <view class="td" style="width:15%">{{item.operationStock}}</view>
-            <view class="td" style="width:15%">{{item.profit}}</view>
+            <view class="td" style="width:15%">{{item.operationUnit}}</view>
+            <view class="td" style="width:15%" wx:if="{{item.operationUnit == '盒'}}">{{item.cartonProfit}}</view>
+            <view class="td" style="width:15%" wx:if="{{item.operationUnit == '条'}}">{{item.boxProfit}}</view>
             <view class="td" style="width:24%">{{item.createDate}}</view>
         </view>
         <view class="tr" wx:else bindtap="openmodel" data-id="{{item.id}}" data-stockNum="{{item.stockNum}}">
-            <view class="td" style="width:46%">{{item.name}}</view>
+            <view class="td" style="width:31%">{{item.name}}</view>
             <view class="td" style="width:15%">{{item.operationStock}}</view>
-            <view class="td" style="width:15%">{{item.profit}}</view>
+            <view class="td" style="width:15%">{{item.operationUnit}}</view>
+            <view class="td" style="width:15%" wx:if="{{item.operationUnit == '盒'}}">{{item.cartonProfit}}</view>
+            <view class="td" style="width:15%" wx:if="{{item.operationUnit == '条'}}">{{item.boxProfit}}</view>
             <view class="td" style="width:24%">{{item.createDate}}</view>
         </view>
     </block>

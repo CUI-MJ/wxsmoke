@@ -56,6 +56,17 @@
   .red{
     color: red
   }
-  .pickersection{
-    font-size: 14px;
+  .pickersection,.weui-form-preview__label{
+    font-size: 16px;
   }
+
+  .weui-form-preview__bd, .weui-form-preview__label {
+    color:#292421;
+  }
+  .style-one{
+    width:98%;
+    border-top:1px dotted #888;
+    height: 1px;
+    margin:10rpx 0;
+  }
+    

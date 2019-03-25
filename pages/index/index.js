@@ -17,6 +17,8 @@ Page({
     currentData:{},
     isLoadmore:true,
     isNodata:false,
+    accounts: ["盒", "条"],
+    accountIndex: 0,
   },
   onReachBottom: function () {
     var that = this;
@@ -129,8 +131,21 @@ Page({
    * 对话框确认按钮点击事件
    */
   onConfirm: function () {
+    if(!Number(this.data.inputValue)){
+      wx.showModal({
+        content: '输入格式不正确',
+        showCancel: false,
+        success: function (res) {
+            if (res.confirm) {
+                console.log('用户点击确定')
+            }
+        }
+      });
+      return false
+    }
     var obj = {
-      operationStock:this.data.inputValue
+      operationStock:this.data.inputValue,
+      operationUnit:this.data.accountIndex == 0? '盒':'条'
     }
     const params = Object.assign(this.data.currentData,obj)
     console.log(params)
@@ -163,5 +178,11 @@ Page({
     this.setData({
       inputValue: e.detail.value
     })
-  }
+  },
+  bindAccountChange: function(e) {
+    console.log('picker account 发生选择改变，携带值为', e.detail.value);
+    this.setData({
+        accountIndex: e.detail.value
+    })
+  },
 })

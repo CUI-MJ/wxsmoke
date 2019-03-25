@@ -1,4 +1,4 @@
-import download from "../../utils/download.js"
+
 var network  = require('../../utils/network')
 // pages/details/details.js
 Page({
@@ -7,63 +7,22 @@ Page({
    * 页面的初始数据
    */
   data: {
-    videoUrl: '',
-    type: '',
-    id:''
+    status:1,
+    id:'',
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
+    var that = this;
     if (options) {
-      var flagUrl = options.video_url
-      wx.setNavigationBarTitle({
-        title: options.name
-      })
-      if (options.type == 3 || options.type == 2) {
-        flagUrl = JSON.parse(options.video_url).url
-      }
       this.setData({
-        videoUrl: flagUrl,
-        type: options.type,
-        id:options.id,
-      })
+        id: options.id,
+      });
+      that.getDetails()
     }
-
   },
-  downloadFile(e) {
-    download.downloadSaveFiles({
-      urls: [e.currentTarget.dataset.src],
-      success: function (res) {
-        wx.openDocument({
-          filePath: res,
-          success: function (res) {
-              console.log('打开文档成功')
-          }
-      })
-      },
-      fail: function (e) {
-        wx.showModal({
-          title: '提示',
-          showCancel: false,
-          content:'下载失败,请您稍后再试',
-        })
-      }
-    })
-  },
-  //图片点击事件
-  imgYu: function (event) {
-    var src = event.currentTarget.dataset.src;//获取data-src
-    var imgList = event.currentTarget.dataset.list;//获取data-list
-    //图片预览
-    wx.previewImage({
-      current: src, // 当前显示图片的http链接
-      urls: imgList // 需要预览的图片http链接列表
-    })
-  },
-
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
@@ -75,7 +34,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+   
   },
 
   /**
@@ -110,39 +69,29 @@ Page({
   onShareAppMessage: function () {
 
   },
-  videoEnd: function () {
-    let that = this;
-    let params = {
-      train_item_id:that.data.id,
-      token:wx.getStorageSync('token'),
-    }
-    network.postRequest('/index.php?s=/api/train.index/update_train_his',params,res=>{
-      if(res.code == 1){
-        setTimeout(function(){
-          wx.navigateBack({
-            delta: 1
-          })
-        },1000)
-       
-      }else{
-        wx.showToast({
-          title: res.data.msg,
-          icon: 'none',
-          duration: 2000
+  getDetails(){
+    network.getRequest(`notice/${this.data.id}`,{},res=>{
+      if(res.code == '0000'){
+        
+        console.log(res.data)
+        this.setData({
+          listData: res.data,
         })
+        if(res.data.length == 0){
+          this.setData({
+            isNodata:true,
+          })
+        }
+      }else{
+        wx.showModal({
+          content:res.msg,
+          showCancel: false,
+          isLoadmore:false,
+        });
       }
+      
     },err=>{
-      wx.showToast({
-        title:'网络错误请稍后再试',
-        icon: 'none',
-        duration: 2000
-      })
+      
     })
-  },
-  pause: function (e) {
-  },
-  timeupdate: function (e) {
-  },
-  playerror() {
   }
 })
