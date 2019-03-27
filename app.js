@@ -1,5 +1,4 @@
 var network  = require('./utils/network')
-console.log(network)
 //app.js
 App({
   onLaunch: function () {
@@ -45,5 +44,6 @@ App({
     appid:'wx065ccb0ff5d1ac3b',
     secret:'bc7c6238ce1c729b5a5e614becce3afd',
     code:'',
+    baseUrl:'https://membert.chinajinmao.cn/cig/'
   }
 })

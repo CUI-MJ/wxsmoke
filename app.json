@@ -1,7 +1,7 @@
 {
   "pages": [
-    "pages/index/index",
     "pages/reg/reg",
+    "pages/index/index",
     "pages/logs/logs",
     "pages/list/list",
     "pages/details/details",
@@ -32,7 +32,7 @@
       "selectedIconPath": "images/my02.png",
       "iconPath": "images/my01.png",
       "pagePath": "pages/my/my",
-      "text": "销烟统计"
+      "text": "销量统计"
     },{
       "selectedIconPath": "images/list01.png",
       "iconPath": "images/list02.png",

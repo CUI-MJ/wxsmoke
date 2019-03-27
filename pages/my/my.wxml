@@ -19,20 +19,38 @@
             </view>
             <view class="weui-form-preview__bd">
                 <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">销量(条):</view>
-                    <view class="weui-form-preview__value">{{listData.sum}}</view>
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">销量(条):</view>
+                        <view class="weui-form-preview__value">{{listData.sum}}</view>
+                    </view>
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">环比：</view>
+                        <view class="weui-form-preview__value">{{listData.compareSumLast}}%</view>
+                    </view>
                 </view>
                 <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">销售额(元):</view>
-                    <view class="weui-form-preview__value">{{listData.retailPrice}}</view>
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">销售额(元):</view>
+                        <view class="weui-form-preview__value">{{listData.retailPrice}}</view>
+                    </view>
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">环比：</view>
+                        <view class="weui-form-preview__value">{{listData.compareRetailPriceLast}}%</view>
+                    </view>
                 </view>
                 <view class="weui-form-preview__item">
-                    <view class="weui-form-preview__label">盈利额(元):</view>
-                    <view class="weui-form-preview__value">{{listData.profit}}</view>
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">盈利额(元):</view>
+                        <view class="weui-form-preview__value">{{listData.profit}}</view>
+                     </view>
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">环比：</view>
+                        <view class="weui-form-preview__value">{{listData.compareProfitLast}}%</view>
+                    </view>
                 </view>
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">盈利率:</view>
-                    <view class="weui-form-preview__value">{{listData.interestRate}}</view>
+                    <view class="weui-form-preview__value">{{listData.interestRate}}%</view>
                 </view>
                 <view class="style-one"></view>
                 <view class="weui-form-preview__item">
@@ -51,6 +69,57 @@
                 <view class="weui-form-preview__item">
                     <view class="weui-form-preview__label">约价品规盈利额(元):</view>
                     <view class="weui-form-preview__value">{{listData.agreedProfit}}</view>
+                </view>
+                <view class="style-one"></view>
+                <view class="weui-form-preview__item">
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">一类销量:</view>
+                        <view class="weui-form-preview__value">{{listData.one}}</view>
+                    </view>
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">占比:</view>
+                        <view class="weui-form-preview__value">{{listData.oneProportion}}%</view>
+                    </view>
+                </view>
+                 <view class="weui-form-preview__item">
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">二类销量:</view>
+                        <view class="weui-form-preview__value">{{listData.two}}</view>
+                    </view>
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">占比:</view>
+                        <view class="weui-form-preview__value">{{listData.twoProportion}}%</view>
+                    </view>
+                </view>
+                 <view class="weui-form-preview__item">
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">三类销量:</view>
+                        <view class="weui-form-preview__value">{{listData.three}}</view>
+                    </view>
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">占比:</view>
+                        <view class="weui-form-preview__value">{{listData.threeProportion}}%</view>
+                    </view>
+                </view>
+                 <view class="weui-form-preview__item">
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">四类销量:</view>
+                        <view class="weui-form-preview__value">{{listData.fore}}</view>
+                    </view>
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">占比:</view>
+                        <view class="weui-form-preview__value">{{listData.foreProportion}}%</view>
+                    </view>
+                </view>
+                 <view class="weui-form-preview__item">
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">五类销量:</view>
+                        <view class="weui-form-preview__value">{{listData.five}}</view>
+                    </view>
+                    <view class="itemcon">
+                        <view class="weui-form-preview__label">占比:</view>
+                        <view class="weui-form-preview__value">{{listData.fiveProportion}}%</view>
+                    </view>
                 </view>
             </view>
         </view>

@@ -96,8 +96,18 @@ Page({
     }
     network.getRequest('wechat/shops-sales', params, res => {
       if (res.code == '0000') {
+        var newdata =  res.data;
+        newdata.compareSumLast = (newdata.compareSumLast*100).toFixed(2)
+        newdata.compareRetailPriceLast = (newdata.compareRetailPriceLast*100).toFixed(2)
+        newdata.compareProfitLast = (newdata.compareProfitLast*100).toFixed(2)
+        newdata.interestRate = (newdata.interestRate*100).toFixed(2)
+        newdata.oneProportion = (newdata.oneProportion*100).toFixed(2)
+        newdata.twoProportion = (newdata.twoProportion*100).toFixed(2)
+        newdata.threeProportion = (newdata.threeProportion*100).toFixed(2)
+        newdata.foreProportion = (newdata.foreProportion*100).toFixed(2)
+        newdata.fiveProportion = (newdata.fiveProportion*100).toFixed(2)
         this.setData({
-          listData: res.data,
+          listData: newdata,
           isLoadmore: false,
         })
         if (this.data.listData.length == 0) {

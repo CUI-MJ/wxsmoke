@@ -8,6 +8,7 @@
   justify-content: center;
   height: 2.6rem;
   align-items: center;
+  position: relative;
 }
 .td {
     width:40%;
@@ -118,4 +119,14 @@ input-holder {
 }
 .weui-select{
   border-right:none;
+}
+.minlogo{
+  position: absolute;
+  left:0;
+  top:-2px;
+}
+.pic{
+  width: 16px;
+  height:16px;
+  margin-right: 5px;
 }

@@ -18,6 +18,12 @@
             <view class="td" style="width:17%">{{item.retailPrice}}</view>
             <view class="td" style="width:16%">{{item.boxStock}}</view>
             <view class="td" style="width:16%">{{item.cartonStock}}</view>
+            <view class="minlogo">
+                <image wx:if="{{item.isNew == 1}}" class="pic" src="/images/new.png"  mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+                </image> 
+                <image wx:if="{{item.isAgreed == 1}}" class="pic" src="/images/yue.png"  mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+                </image>
+            </view>
         </view>
         <view class="tr" wx:else bindtap="openmodel" data-id="{{item.id}}" data-shopsId="{{item.shopsId}}" data-cigaretteId="{{item.cigaretteId}}">
             <view class="td" style="width:34%">{{item.name}}</view>
@@ -25,6 +31,12 @@
             <view class="td" style="width:17%">{{item.retailPrice}}</view>
             <view class="td" style="width:16%">{{item.boxStock}}</view>
             <view class="td" style="width:16%">{{item.cartonStock}}</view>
+            <view class="minlogo">
+                <image wx:if="{{item.isNew == 1}}" class="pic" src="/images/new.png"  mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+                </image> 
+                <image wx:if="{{item.isAgreed == 1}}" class="pic" src="/images/yue.png"  mode="aspectFit|aspectFill|widthFix" lazy-load="false" binderror="" bindload="">
+                </image>
+            </view>
         </view>
     </block>
      <!--弹窗-->

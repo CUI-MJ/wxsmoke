@@ -10,6 +10,33 @@ const host = 'https://membert.chinajinmao.cn/cig/'
 // const host ="http://mytrain2.shsmiles.com"
 //post请求
 
+// loading配置，请求次数统计
+function startLoading() {
+    wx.showLoading({
+      title: 'Loading...',
+      icon: 'none'
+    })
+  }
+  function endLoading() {
+    wx.hideLoading();
+  }
+  // 声明一个对象用于存储请求个数
+  var needLoadingRequestCount = 0;
+  function showFullScreenLoading() {
+    if (needLoadingRequestCount === 0) {
+      startLoading();
+    }
+    needLoadingRequestCount++;
+  };
+  function tryHideFullScreenLoading() {
+    if (needLoadingRequestCount <= 0) return;
+    needLoadingRequestCount--;
+    if (needLoadingRequestCount === 0) {
+      endLoading();
+    }
+  };
+  
+
 function postRequest(url, params, success, fail) {
     this.postRequestLoading(url, params, "", success, fail)
 }
@@ -21,7 +48,8 @@ function postRequestLoading(url, params, message, success, fail) {
             title: message,
         })
     }
-   
+    wx.showNavigationBarLoading();
+    showFullScreenLoading();
     const postRequestTask = wx.request({
         url: host + url,
         data: Object.assign({appId:'wxc301d72d99dd6b36'}, params),
@@ -49,12 +77,17 @@ function postRequestLoading(url, params, message, success, fail) {
             } else {
                 fail(res)
             }
+            tryHideFullScreenLoading();
         },
         fail: function (res) {
             if (message != "") {
                 wx.hideLoading()
             }
             fail(res)
+            tryHideFullScreenLoading();
+        },
+        complete: function () {
+            wx.hideNavigationBarLoading();
         }
     })
 }
@@ -70,6 +103,8 @@ function getRequestLoading(url, params, message, success, fail) {
             title: message,
         })
     }
+    wx.showNavigationBarLoading();
+    showFullScreenLoading();
     const getRequestTask = wx.request({
         url: host + url,
         data: Object.assign({appid:'wx92a3d222a4b07756'}, params),
@@ -97,12 +132,17 @@ function getRequestLoading(url, params, message, success, fail) {
             } else {
                 fail(res)
             }
+            tryHideFullScreenLoading();
         },
         fail: function (res) {
             if (message != "") {
                 wx.hideLoading()
             }
             fail(res)
+            tryHideFullScreenLoading();
+        },
+        complete: function () {
+            wx.hideNavigationBarLoading();
         }
     })
 }

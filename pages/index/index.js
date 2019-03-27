@@ -87,6 +87,7 @@ Page({
     this.setData({
       listData:[],
       pageNum:1,
+      shopsGrade:wx.getStorageSync('shopsGrade')
     });
     this.getstockList();
   },
