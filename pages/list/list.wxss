@@ -5,3 +5,16 @@
     padding-left:32rpx;
     font-weight:500;
 }
+.page,
+.page__bd{
+    height: 100%;
+}
+.page__bd{
+    padding-bottom: 0;
+}
+.weui-navbar__title{
+    font-size: 16px;
+}
+.weui-cell__bd , .weui-cell__ft{
+    font-size: 14px;
+}

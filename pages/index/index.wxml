@@ -7,7 +7,7 @@
         <view class="tr bg-w">
             <view class="th" style="width:34%">商品名称</view>
             <view class="th" style="width:17%">批发价</view>
-            <view class="th" style="width:17%">零售价</view>
+            <view class="th" style="width:17%">约定价</view>
             <view class="th" style="width:16%">盒库存</view>
             <view class="th" style="width:16%">条库存</view>
         </view>

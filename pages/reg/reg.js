@@ -39,20 +39,21 @@ Page({
     }
     network.postRequest('wechat/login-wechat', params, res => {
        if(res.code == '0000'){
-          if(res.data.isShops == 1){
-            wx.setStorageSync('token', res.data.token)
-            wx.setStorageSync('userId', res.data.userId)
-            wx.setStorageSync('shopsGrade', res.data.shopsGrade)
-            wx.switchTab({
-              url: "/pages/index/index"
-            })
-          }else{
-            wx.showModal({
-              title: '提示',
-              showCancel: false,
-              content:'您不是商铺用户,无法登陆',
-            })
-          }
+          wx.setStorageSync('token', res.data.token)
+          wx.setStorageSync('userId', res.data.userId)
+          wx.setStorageSync('shopsGrade', res.data.shopsGrade)
+          wx.switchTab({
+            url: "/pages/index/index"
+          })
+          // if(res.data.isShops == 1){
+           
+          // }else{
+          //   wx.showModal({
+          //     title: '提示',
+          //     showCancel: false,
+          //     content:'您不是商铺用户,无法登陆',
+          //   })
+          // }
          
        }else{
         wx.showModal({

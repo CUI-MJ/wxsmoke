@@ -1,5 +1,6 @@
 // pages/realExam/realExam.js
 var network = require('../../utils/network')
+var sliderWidth = 123; // 需要设置slider的宽度，用于计算中间位置
 Page({
 
   /**
@@ -12,13 +13,27 @@ Page({
     pageNum:1,
     pageSize:20,
     pages:0,
+    // tab栏切换
+    tabs: ['学习园地','信息采集'],
+    activeIndex: 0,
+    sliderOffset: 0,
+    sliderLeft: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-  
+    var that = this;
+    wx.getSystemInfo({
+        success: function(res) {
+            console.log((res.windowWidth / that.data.tabs.length - sliderWidth) / 2)
+            that.setData({
+                sliderLeft: (res.windowWidth / that.data.tabs.length - sliderWidth) / 2,
+                sliderOffset: res.windowWidth / that.data.tabs.length * that.data.activeIndex
+            });
+        }
+    });
   },
 
   /**
@@ -125,5 +140,11 @@ Page({
     wx.navigateTo({
         url: `/pages/details/details?id=${id}`
     })
+  },
+  tabClick: function (e) {
+    this.setData({
+        sliderOffset: e.currentTarget.offsetLeft,
+        activeIndex: e.currentTarget.id
+    });
   }
 })
