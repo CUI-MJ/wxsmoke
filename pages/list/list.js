@@ -9,10 +9,16 @@ Page({
   data: {
     isLoadmore:false,
     isNodata:false,
+    isMsgLoadmore:false,
+    isMsgNodata:false,
+    msgData:[],
     listData: [],
     pageNum:1,
     pageSize:20,
     pages:0,
+    openId:'',
+    isOpenInput:false,
+    inputvalue:'',
     // tab栏切换
     tabs: ['学习园地','信息采集'],
     activeIndex: 0,
@@ -48,6 +54,7 @@ Page({
    */
   onShow: function () {
     this.getMsgList()
+    this.getMarketPriceInfo()
   },
 
   /**
@@ -141,10 +148,80 @@ Page({
         url: `/pages/details/details?id=${id}`
     })
   },
+  openInput(e){
+    if(this.data.isOpenInput){
+      return false;
+    }
+    let id = e.currentTarget.dataset.id
+    let marketPrice = e.currentTarget.dataset.marketprice
+    this.setData({
+      openId: id,
+      inputvalue: marketPrice ? marketPrice :'',
+      isOpenInput:true,
+    });
+  },
   tabClick: function (e) {
     this.setData({
         sliderOffset: e.currentTarget.offsetLeft,
         activeIndex: e.currentTarget.id
     });
+  },
+  getMarketPriceInfo(){
+    let params = {
+      shopsId:wx.getStorageSync("shopsId")
+    }
+    network.getRequest('wechat/market-price-info',params,res=>{
+      if(res.code == '0000' ){
+        this.setData({
+          msgData: res.data,
+          isMsgLoadmore:false,
+        })
+        if(this.data.listData.length == 0){
+          this.setData({
+            isMsgNodata:true,
+          })
+        }
+      }else{
+        wx.showModal({
+          content:res.msg,
+          showCancel: false,
+          isMsgLoadmore:false,
+        });
+      }
+      
+    },err=>{
+      
+    })
+  },
+  bindfocus(e){
+  },
+  bindblur(e){
+    var that = this;
+    if(!Number(e.detail.value)){
+      return false
+    }
+    let params = {
+      id:that.data.openId,
+      marketPrice:e.detail.value,
+    }
+    network.postRequest('wechat/save-market-price', params,res=>{
+      if(res.code =='0000'){
+        setTimeout(()=>{
+          this.setData({
+            isOpenInput:false
+          });
+          that.getMarketPriceInfo()
+        },500)
+      }else{
+        wx.showModal({
+          content:res.msg,
+          showCancel: false,
+          isLoadmore:false,
+        });
+      }
+      
+    },err=>{
+      
+    })
   }
 })

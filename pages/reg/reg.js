@@ -39,6 +39,7 @@ Page({
     }
     network.postRequest('wechat/login-wechat', params, res => {
        if(res.code == '0000'){
+          wx.setStorageSync('shopsId', res.data.shopsId)
           wx.setStorageSync('token', res.data.token)
           wx.setStorageSync('userId', res.data.userId)
           wx.setStorageSync('shopsGrade', res.data.shopsGrade)
